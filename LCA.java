@@ -1,15 +1,19 @@
-/* LCA <NlogN , logN> dependency : level , log , V , DP = new int[log(V) + 1][V + 1]; */
-static int DP[][];
+/* LCA <NlogN , logN> dependency : level , log , V , DP = new int[log(V) + 1][V + 1];, parent (for the first level of DP) */
+static int DP[][]; // One based vertices
 static int level[];
+static int parent[];
 static int log(int N){
 	return 31 - Integer.numberOfLeadingZeros(N);
 }
 static void buildSparse() {
-	for (int i = 1; i < DP.length; i++) {
-		for (int j = 1; j <= V; j++) {
+	
+	for(int i=1;i<=V;i++)
+		DP[0][i] = parent[i];
+	
+	for (int i = 1; i < DP.length; i++) 
+		for (int j = 1; j <= V; j++) 
 			DP[i][j] = DP[i - 1][DP[i - 1][j]];
-		}
-	}
+
 }
 
 static int LCA(int u , int v){
