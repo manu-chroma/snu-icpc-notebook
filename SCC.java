@@ -67,4 +67,18 @@ static class SCC {
 	public int numberOfComponents() {
 		return numOfComponents;
 	}
+
+	@SuppressWarnings("unchecked")
+	public HashSet<Integer>[] getDAG() {
+		HashSet<Integer>[] dag = new HashSet[numOfComponents];
+		for(int i=0;i<numOfComponents;i++)
+			dag[i] = new HashSet<>();
+		for(int i=st;i<V + st;i++)
+			for(int v : adj[i])
+				if(group[i] != group[v])
+					dag[group[i]].add(group[v]);
+
+		return dag;
+	}
+
 }
