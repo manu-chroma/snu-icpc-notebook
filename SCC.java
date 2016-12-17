@@ -16,11 +16,13 @@ static class SCC {
 	private int group[];
 	private boolean marked[];
 	private int numOfComponents;
+	private int st , V;
+
 
 	@SuppressWarnings("unchecked")
 	SCC(Iterable<Integer>[] adj , boolean oneBased) {
-		int st = oneBased ? 1 : 0;
-		int V = adj.length - st; 
+		st = oneBased ? 1 : 0;
+		V = adj.length - st; 
 		group = new int[V + st];
 		this.adj = adj;
 		invGraph = new ArrayList[V + st];
@@ -80,5 +82,4 @@ static class SCC {
 
 		return dag;
 	}
-
 }
