@@ -14,7 +14,7 @@ dfs_all(graph)
       connected_component += 1
       dfs(u)
 */
-
+#define max _
 bool visited[max] = {0};
 void dfs(vector < vector <int> > & graph, int start) {
 	for(int i = 0, size = graph[start].size() ; i < size; i++) {
