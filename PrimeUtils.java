@@ -85,7 +85,7 @@ static void fastFiSieve(int N) {
 	}
 }
 
-static HashMap<Integer, Integer> primeFactorize(int N) { // Dependency : A sieve (loPrime[]) which contains the lowest prime divisor for each number
+static HashMap<Integer, Integer> primeFactorize(int N) { // Dependency : A sieve (loPrime[] or bigPrime[]) which contains a prime divisor for each number
 	HashMap<Integer, Integer> mp = new HashMap<>();
 	int ct, prime;
 	while (N != 1) {
