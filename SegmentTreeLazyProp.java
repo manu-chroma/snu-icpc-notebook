@@ -1,5 +1,6 @@
-static class SegmentTreeLazyProp {
-
+static class SegmentTreeLazyProp { 
+	// In this version the tree holds the bitmask of the colors used 
+	// Update operation is changing the entire interval's color  
 	long tree[];
 	int lazy[];
 	int len;
@@ -62,7 +63,7 @@ static class SegmentTreeLazyProp {
 			else if(L > mid)
 				right = update(2*n + 1, mid + 1, nr, L, R, c);
 			else {
-				left = update(2*n, nl, mid, L, mid, c);
+				left  = update(2*n, nl, mid, L, mid, c);
 				right = update(2*n + 1, mid + 1, nr, mid + 1, R, c);
 			}
 
