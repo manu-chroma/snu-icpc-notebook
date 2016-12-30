@@ -3,7 +3,7 @@ import java.util.ArrayDeque;
 class RabinKarp {
 
 	static final long p1 = (long) (1e9) + 7L;  // mod1
-	static final long p2 = (long) (1e9) + 13L; // mod2
+	static final long p2 = (long) (1e9) + 9L; // mod2
 	static final long x1 = 46399; 				   // base1
 	static final long x2 = 18757;				   // base2
 	
