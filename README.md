@@ -1,6 +1,6 @@
-# SNU-ICPC 2016-notebook
+# SNU-ICPC notebook
+This repository contains the code snipptes used ICPC regionals. <br>
 ## Team : stack_underflow
-
-This repository contains the code snipptes used in the 2016 ICPC regionals. <br>
-
 ``Members : Nishanth , Nishank , Manvendra , Bhishma``
+## Team : untitled
+``Members : Nishanth , Nishank , Bhishma``
