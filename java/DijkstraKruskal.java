@@ -16,25 +16,25 @@ static class Edge implements Comparable<Edge> {
 	}
 }
 
-static long[] dijkstra(int start , int V) {  // Dependency adj (adjacency list of type Edge) , vertex count V 
-	PriorityQueue<Edge> pq = new PriorityQueue<>();
-	pq.add(new Edge(start, 0));
-	boolean marked[] = new boolean[V + 1]; 
-	long distTo[] = new long[V + 1];
-	while (!pq.isEmpty()) {
-		Edge min = pq.remove();
-		int u = min.v;
-		if(!marked[u]){
-			marked[u] = true;
-			distTo[u] = min.cost;
-			for (Edge e : adj[u])
-				if (!marked[e.v])
-					pq.add(new Edge(e.v, e.cost + distTo[u]));
-		}
-	}
+private static long distTo[];  // Should be filled with infinity	   
+private static void dijkstra(int start) {
+    PriorityQueue<Edge> pq = new PriorityQueue<>();
+    pq.add(new Edge(start, 0));
+    distTo[start] = 0;
+    while (!pq.isEmpty()) {
+        Edge min = pq.remove();
+        int u = min.v;
+        if (distTo[u] < min.cost)
+            continue;
 
-	return distTo;
+        for (Edge e : adj[u])
+            if (distTo[e.v] > distTo[u] + e.cost) {
+                distTo[e.v] = distTo[u] + e.cost;
+                pq.add(new Edge(e.v, distTo[e.v]));
+            }
+    }
 }
+
 
 static long KruskalMST(Edge arr[], int V) { // Dependency : array of edges (Type Edge) , vertex count V , DisjointSetUnion data structure
 	Arrays.sort(arr);
